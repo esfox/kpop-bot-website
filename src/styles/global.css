@@ -1,0 +1,36 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-primary: #f26558;
+  --color-primary-hover: #f37469;
+  --color-primary-lighter: #f6938a;
+  --color-bg: #3f3936;
+  --color-bg-light: #4b4440;
+  --color-bg-lighter: #524d4a;
+  --color-bg-lightest: #797472;
+  --color-bg-dark: #36302e;
+  --color-bg-darker: #2f2b29;
+  --color-bg-dark-hover: #393634;
+  --color-white: #eee;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-white);
+  height: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+input[type="search"] {
+  border: none;
+}
+
+#svelte {
+  height: 100%;
+}
