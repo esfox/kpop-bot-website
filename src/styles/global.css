@@ -1,4 +1,5 @@
 /* Write your global styles here, in PostCSS syntax */
+/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,7 +28,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-input[type="search"] {
+input[type='search'] {
   border: none;
 }
 
