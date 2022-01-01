@@ -27,6 +27,7 @@ export async function get({ url })
   /* Shuffle the fancams array if there is a `random` query param. */
   if(queryParams.get('random') === 'true')
     fancams = shuffleArray(fancams);
+  else fancams = fancams.reverse();
 
   /* Limit the results if there is a `limit` query param. */
   const limit = queryParams.get('limit');
