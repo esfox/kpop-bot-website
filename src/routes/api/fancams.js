@@ -8,17 +8,23 @@ export async function get({ url })
 {
   const queryParams = url.searchParams;
 
+  /* Query parameters for the `GET /fancams` request. */
+  const fancamsParams = {};
+
+  /* Get the `search` query parameter. */
+  const search = queryParams.get('search');
+  if(search)
+    fancamsParams.member_names = search;
+
   /** @type {[] | undefined} */
   let fancams;
   try
   {
-    fancams = await API.fetchFancams({
-      member_names: queryParams.get('search'),
-    });
+    fancams = await API.fetchFancams(fancamsParams);
   }
   catch(error)
   {
-    return { status: error.response.status, body: error.response.data };
+    return { status: error?.response?.status, body: error?.response?.data };
   }
 
   if(!fancams)
