@@ -1,4 +1,4 @@
-import { API } from '$lib/api';
+import { API } from '$lib/api/server-side';
 import { shuffleArray } from '$lib/helpers';
 
 /**
