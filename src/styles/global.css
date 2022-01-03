@@ -1,5 +1,4 @@
 /* Write your global styles here, in PostCSS syntax */
-/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,16 +6,15 @@
 /* CSS Variables */
 :root {
   /* Colors */
-  --color-primary: #f26558;
-  --color-primary-hover: #f37469;
-  --color-primary-lighter: #f6938a;
-  --color-bg: #3f3936;
-  --color-bg-light: #4b4440;
-  --color-bg-lighter: #524d4a;
-  --color-bg-lightest: #797472;
-  --color-bg-dark: #36302e;
-  --color-bg-darker: #2f2b29;
-  --color-bg-dark-hover: #393634;
+  --color-primary: #3b8fd4;
+  --color-primary-hover: #4f9ad8;
+  --color-primary-lighter: #62a5dd;
+  --color-bg: #373c40;
+  --color-bg-light: #4b5053;
+  --color-bg-lighter: #5f6366;
+  --color-bg-lightest: #878a8c;
+  --color-bg-dark: #32363a;
+  --color-bg-darker: #2c3033;
   --color-white: #eee;
 }
 
@@ -28,7 +26,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-input[type='search'] {
+input {
   border: none;
 }
 
