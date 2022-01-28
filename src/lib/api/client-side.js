@@ -1,5 +1,8 @@
 import ky from 'ky';
 
+import { mapIdol } from './mapping/idol';
+import { mapSong } from './mapping/song';
+
 const api = ky.create({ prefixUrl: '/api' });
 
 /**
@@ -22,13 +25,59 @@ export class API
   //   return data.json();
   // }
 
+  /** @returns {Promise<import('./mapping/idol').Idol[]>} */
   static async fetchIdols()
   {
-    return get('idols');
+    const idols = await get('idols');
+    return idols.map(mapIdol);
   }
 
+  /** @returns {Promise<import('./mapping/song').Song[]>} */
   static async fetchSongs()
   {
-    return get('songs');
+    const songs = await get('songs');
+    return songs.map(mapSong);
+  }
+
+  static async fetchTags()
+  {
+    return get('tags');
+  }
+
+  static async addFancam({
+    youtubeLink,
+    idols,
+    recordingDate,
+    songId,
+    orientation,
+    rotation,
+    isFullShot,
+    isNotFullSong,
+    isEyeContact,
+    discordId,
+  })
+  {
+    const json = {
+      url: youtubeLink,
+      members: idols.map(({ id, tags }) => ({
+        idol: {
+          member_id: id,
+        },
+        tags: tags
+      })),
+      recording_date: recordingDate,
+      song_id: songId || null,
+      orientation: orientation,
+      rotation,
+      is_full_shot: isFullShot,
+      has_complete_audio: !isNotFullSong,
+      has_front_angle: isEyeContact,
+      discord_id: discordId,
+    };
+
+    if(songId)
+      json.song_id = songId;
+
+    return api.post('fancams', { json }).json();
   }
 }

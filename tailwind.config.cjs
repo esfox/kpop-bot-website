@@ -19,6 +19,8 @@ module.exports = {
           lightest: 'var(--color-bg-lightest)',
         },
         white: 'var(--color-white)',
+        success: 'var(--color-success)',
+        danger: 'var(--color-danger)',
       },
       ringColor: {
         DEFAULT: '#62a5dd',

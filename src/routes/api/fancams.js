@@ -24,7 +24,10 @@ export async function get({ url })
   }
   catch(error)
   {
-    return { status: error?.response?.status, body: error?.response?.data };
+    if(error.response)
+      return { status: error?.response?.statusCode, body: error?.response?.body };
+
+    return { status: 500, };
   }
 
   if(!fancams)
@@ -41,4 +44,25 @@ export async function get({ url })
     fancams = fancams.slice(0, limit);
 
   return { body: fancams };
+}
+
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export async function post({ request })
+{
+  try
+  {
+    const body = await request.json();
+    await API.addFancam(body);
+    return { status: 200 };
+  }
+  catch(error)
+  {
+    console.error(error);
+    if(error.response)
+      return { status: error?.response?.statusCode, body: error?.response?.body };
+
+    return { status: 500, };
+  }
 }

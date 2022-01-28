@@ -9,10 +9,20 @@ export function shuffleArray(array)
   return array;
 }
 
-export function getYouTubeID(url)
+export function getYouTubeID(url = '')
 {
   /* regex for getting YouTube video ID */
   const youTubeRegex = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/ ]{11})/i;
-  const [, youTubeID] = url.match(youTubeRegex);
+  const [, youTubeID] = url.match(youTubeRegex) || [];
   return youTubeID;
+}
+
+export function debounce(callback, timeout = 500)
+{
+  let timer;
+  return (...args) =>
+  {
+    clearTimeout(timer);
+    timer = setTimeout(() => { callback.apply(this, args); }, timeout);
+  };
 }
