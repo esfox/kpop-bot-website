@@ -25,7 +25,7 @@
       'bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-white',
     rounded && 'rounded-lg',
     fab &&
-      'bg-primary hover:bg-primary-hover w-16 h-16 grid place-items-center rounded-full text-5xl shadow-xl',
+      'fab bg-primary hover:bg-primary-hover w-16 h-16 grid place-items-center rounded-full text-5xl shadow-xl',
     $$props.class
   )}
   {disabled}
@@ -40,7 +40,7 @@
 </button>
 
 <style>
-  button {
+  button:not(.fab) {
     height: var(--height);
   }
 </style>

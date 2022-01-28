@@ -69,17 +69,27 @@
 
 <main class="flex flex-col items-center px-16 py-12">
   <div class="sticky top-0 w-full flex justify-center bg-bg flex py-6 z-10">
-    <Input
-      type="search"
-      class="w-80 rounded-l-lg py-3"
-      placeholder="Search fancams by idol..."
-      autofocus
-      on:enter={searchFancams}
-      bind:value={search}
-    />
-    <Button class="rounded-r-lg" on:click={searchFancams}>
-      <i class="fa fa-search fa-lg" />
-    </Button>
+    <div class="flex-1" />
+    <div class="flex">
+      <Input
+        type="search"
+        class="w-80 rounded-l-lg py-3"
+        placeholder="Search fancams by idol..."
+        autofocus
+        on:enter={searchFancams}
+        bind:value={search}
+      />
+      <Button class="rounded-r-lg" on:click={searchFancams}>
+        <i class="fa fa-search fa-lg" />
+      </Button>
+    </div>
+    <div class="flex justify-end flex-1">
+      <a href="/add-fancam">
+        <Button rounded>
+          <i class="fa fa-plus mr-2" /> Add Fancam
+        </Button>
+      </a>
+    </div>
   </div>
 
   {#if isLoading || !isMounted}
