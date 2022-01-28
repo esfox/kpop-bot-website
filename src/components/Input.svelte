@@ -5,6 +5,8 @@
   export let value = '';
   export let multiline = false;
   export let rounded = false;
+  export let element = undefined;
+  export let noSpinner = false;
 
   const dispatch = createEventDispatcher();
 
@@ -13,6 +15,7 @@
     class: classNames(
       'input w-full bg-bg-darker px-3 py-2 outline-0 focus:ring-2 focus:ring-primary focus:border-primary transition',
       rounded && 'rounded-lg',
+      $$props.type === 'number' && noSpinner && 'no-spinner',
       $$props.class,
       { multiline }
     ),
@@ -24,14 +27,37 @@
 </script>
 
 {#if multiline}
-  <textarea bind:value {...attributes} on:keypress={onEnterPressed} />
+  <textarea bind:this={element} bind:value {...attributes} on:keypress={onEnterPressed} on:input />
 {:else}
-  <input bind:value {...attributes} on:keypress={onEnterPressed} />
+  <input bind:this={element} bind:value {...attributes} on:keypress={onEnterPressed} on:input />
 {/if}
 
-<style>
-  .input::placeholder {
-    color: var(--color-bg-lightest);
+<style lang="scss">
+  .input {
+    &::placeholder {
+      color: var(--color-bg-lightest);
+    }
+
+    &[type='date'] {
+      cursor: text;
+
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+      }
+    }
+
+    &.no-spinner {
+      &[type='number'] {
+        -moz-appearance: textfield;
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
   }
 
   .multiline {

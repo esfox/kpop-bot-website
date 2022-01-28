@@ -16,6 +16,15 @@
   --color-bg-dark: #32363a;
   --color-bg-darker: #2c3033;
   --color-white: #eee;
+  --color-success: #81C784;
+  --color-danger: #E57373;
+
+  /* SvelteToast overrides */
+  --toastContainerLeft: auto;
+  --toastContainerRight: 1rem;
+  --toastContainerTop: auto;
+  --toastContainerBottom: 1rem;
+  --toastBackground: var(--color-bg-darker);
 }
 
 html,
@@ -28,6 +37,10 @@ body {
 
 input {
   border: none;
+}
+
+hr {
+  border-color: var(--color-bg-light);
 }
 
 #svelte {

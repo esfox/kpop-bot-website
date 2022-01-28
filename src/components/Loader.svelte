@@ -1,7 +1,8 @@
 <script>
-  export let width = 64;
-  export let height = 64;
+  export let width = '64px';
+  export let height = '64px';
   export let stroke = 10;
+  export let color = 'var(--color-primary)';
 </script>
 
 <div class={$$props.class}>
@@ -11,15 +12,15 @@
     class="animate-spin"
     style="margin: auto; display: block; shape-rendering: auto;"
     viewBox="0 0 100 100"
-    width={`${width}px`}
-    height={`${height}px`}
+    {width}
+    {height}
     preserveAspectRatio="xMidYMid"
   >
     <circle
       cx="50"
       cy="50"
       fill="none"
-      stroke="var(--color-primary)"
+      stroke={color}
       stroke-width={stroke}
       r="35"
       stroke-dasharray="164.93361431346415 56.97787143782138"

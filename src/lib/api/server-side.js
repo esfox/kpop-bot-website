@@ -31,4 +31,14 @@ export class API
   {
     return get('songs');
   }
+
+  static fetchTags()
+  {
+    return get('tags');
+  }
+
+  static addFancam(json)
+  {
+    return api.post('fancams', { json });
+  }
 }
