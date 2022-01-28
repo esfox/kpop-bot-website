@@ -69,7 +69,7 @@
 
 <main class="flex flex-col items-center px-16 py-12">
   <div class="sticky top-0 w-full flex justify-center bg-bg flex py-6 z-10">
-    <div class="flex-1" />
+    <!-- <div class="flex-1" /> -->
     <div class="flex">
       <Input
         type="search"
@@ -83,13 +83,13 @@
         <i class="fa fa-search fa-lg" />
       </Button>
     </div>
-    <div class="flex justify-end flex-1">
+    <!-- <div class="flex justify-end flex-1">
       <a href="/add-fancam">
         <Button rounded>
           <i class="fa fa-plus mr-2" /> Add Fancam
         </Button>
       </a>
-    </div>
+    </div> -->
   </div>
 
   {#if isLoading || !isMounted}
